@@ -936,9 +936,7 @@ body {
 
     .main-card {
         width: 92%;
-
-        padding:
-            45px 30px 25px;
+        padding: 45px 30px 25px;
     }
 
     .heading-area h1 {
@@ -947,9 +945,7 @@ body {
 
     .message-box {
         height: 500px;
-
-        padding:
-            25px 45px;
+        padding: 25px 45px;
     }
 
     #messageText {
@@ -967,76 +963,22 @@ body {
 }
 
 
-@media (max-width: 600px) {
-
-    .birthday-title {
-        font-size: 25px;
-    }
-
-    .main-card {
-        margin: 15px auto;
-
-        height:
-            calc(100vh - 90px);
-
-        padding:
-            40px 15px 20px;
-    }
-
-    .heading-area h1 {
-        font-size: 26px;
-    }
-
-    .message-box {
-        height: 500px;
-
-        padding:
-            20px 25px;
-    }
-
-    .message-decoration {
-        display: none;
-    }
-
-    .message-content {
-        padding: 0;
-    }
-
-    #messageText {
-        font-size: 14px;
-
-        line-height: 1.8;
-    }
-
-    .navigation {
-        left: 15px;
-        right: 15px;
-    }
-
-    .nav-button {
-        min-width: 80px;
-
-        padding:
-            9px 12px;
-    }
-
-    .balloon {
-        opacity: 0.45;
-    }
-}
-
 /* =========================================================
-   MOBILE FIX FOR PAGE 2
+   MOBILE - PAGE 2 FULL SCREEN FIT
+   Next button stays at the bottom
 ========================================================= */
 
 @media (max-width: 600px) {
 
+    html,
     body {
+        width: 100%;
+        height: 100%;
         overflow: hidden;
     }
 
     .top-header {
-        height: 60px;
+        height: 58px;
         padding-left: 12px;
     }
 
@@ -1050,37 +992,43 @@ body {
     }
 
 
-    /* Main card */
+    /* Main card fills the available mobile screen */
 
     .main-card {
-        width: calc(100% - 20px);
-        height: calc(100vh - 75px);
+        position: relative;
+
+        width: calc(100% - 16px);
+        height: calc(100vh - 68px);
 
         min-height: 0;
 
-        margin: 10px auto;
+        margin: 10px auto 0;
 
-        padding:
-            38px 12px 65px;
+        padding: 38px 10px 58px;
 
         border-radius: 24px;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
     }
 
 
     /* Page number */
 
     .page-number {
-        top: 12px;
-        right: 15px;
-
-        font-size: 12px;
+        top: 10px;
+        right: 14px;
+        font-size: 11px;
     }
 
 
     /* Heading */
 
     .heading-area {
-        margin-bottom: 12px;
+        flex-shrink: 0;
+        margin-bottom: 10px;
     }
 
     .heading-heart {
@@ -1088,115 +1036,94 @@ body {
     }
 
     .heading-area h1 {
-        font-size: 25px;
-
-        line-height: 1.2;
-
-        margin-top: 5px;
+        font-size: 24px;
+        line-height: 1.15;
+        margin-top: 3px;
     }
 
     .heading-area h1 span {
-        font-size: 22px;
+        font-size: 20px;
     }
 
-
-    /* Heading lines */
-
     .heading-decoration {
-        margin-top: 6px;
-        gap: 8px;
+        margin-top: 5px;
+        gap: 7px;
     }
 
     .heading-decoration span {
-        width: 65px;
+        width: 55px;
     }
 
     .heading-decoration b {
-        font-size: 22px;
+        font-size: 20px;
     }
 
 
-    /* =====================================================
-       MESSAGE BOX
-    ===================================================== */
+    /* Message box uses all remaining space */
 
     .message-box {
+        position: relative;
+
+        flex: 1;
 
         width: 100%;
+        height: auto;
 
-        /*
-           Use available screen height
-           instead of fixed 520px.
-        */
+        min-height: 0;
+        max-height: none;
 
-        height: calc(100vh - 265px);
-
-        min-height: 330px;
-
-        max-height: 440px;
-
-        padding:
-            18px 14px;
+        padding: 12px 10px;
 
         border-radius: 16px;
+
+        overflow: hidden;
     }
 
 
-    /* Remove left decorative icons
-       because they take too much room */
+    /* Hide decorative side icons on small screens */
 
     .message-decoration {
         display: none;
     }
 
 
-    /* Text container */
+    /* Center animated text inside message box */
 
     .message-content {
-
         width: 100%;
-
         height: 100%;
 
-        padding:
-            5px 3px;
+        padding: 0;
 
         display: flex;
-
         align-items: center;
-
         justify-content: center;
+
+        overflow: hidden;
     }
 
 
-    /* =====================================================
-       WORD-BY-WORD TEXT
-    ===================================================== */
+    /* Animated message */
 
     #messageText {
-
         width: 100%;
+        max-width: 100%;
 
-        font-family:
-            "Courier New",
-            monospace;
+        font-family: "Courier New", monospace;
 
         font-size: 13px;
-
-        line-height: 1.7;
+        line-height: 1.65;
 
         text-align: left;
 
         overflow-wrap: break-word;
-
+        word-wrap: break-word;
         word-break: normal;
 
-        max-width: 100%;
+        margin: 0;
     }
 
-
     .word {
-
         margin-right: 3px;
     }
 
@@ -1204,16 +1131,14 @@ body {
     /* Cursor */
 
     .cursor {
-
         width: 2px;
-
-        height: 17px;
-
+        height: 16px;
         margin-left: 2px;
     }
 
 
-    /* Bottom decoration */
+    /* Hide lower decorative curve so it doesn't
+       consume space needed by the message */
 
     .message-bottom-decoration {
         display: none;
@@ -1221,79 +1146,89 @@ body {
 
 
     /* =====================================================
-       NAVIGATION
+       NAVIGATION - ALWAYS AT THE VERY BOTTOM
     ===================================================== */
 
     .navigation {
+        position: absolute;
 
-        left: 12px;
-        right: 12px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
 
-        bottom: 12px;
+        height: 36px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        z-index: 20;
     }
 
+
     .nav-button {
+        min-width: 72px;
+        height: 34px;
 
-        min-width: 70px;
+        padding: 7px 10px;
 
-        padding:
-            8px 10px;
+        border-radius: 20px;
 
         font-size: 12px;
+
+        white-space: nowrap;
     }
 
 
     /* Pagination */
 
     .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         gap: 4px;
     }
 
     .pagination span {
-
         width: 5px;
         height: 5px;
     }
 
     .pagination span.active {
-
         width: 18px;
+        height: 5px;
     }
 
 
-    /* =====================================================
-       BALLOONS
-    ===================================================== */
+    /* Balloons */
 
     .balloon-body {
-
-        width: 45px;
-        height: 65px;
+        width: 42px;
+        height: 62px;
     }
 
     .balloon-string {
-
-        height: 60px;
+        height: 55px;
     }
 
     .balloon-left-top {
-        left: 1%;
+        left: 0;
         top: 25%;
     }
 
     .balloon-left-bottom {
-        left: -1%;
+        left: -2%;
         bottom: 15%;
     }
 
     .balloon-right-top {
-        right: 1%;
+        right: 0;
         top: 25%;
     }
 
     .balloon-right-bottom {
-        right: -1%;
+        right: -2%;
         bottom: 15%;
     }
 
@@ -1301,7 +1236,63 @@ body {
     /* Floating hearts */
 
     .floating-heart {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .main-card {
+        width: calc(100% - 10px);
+
+        padding: 35px 7px 58px;
+    }
+
+    .heading-area h1 {
+        font-size: 21px;
+    }
+
+    .heading-heart {
+        font-size: 19px;
+    }
+
+    .heading-area h1 span {
         font-size: 18px;
     }
 
+    .message-box {
+        padding: 10px 8px;
+    }
+
+    #messageText {
+        font-size: 11.5px;
+        line-height: 1.6;
+    }
+
+    .nav-button {
+        min-width: 62px;
+        height: 32px;
+
+        padding: 6px 8px;
+
+        font-size: 11px;
+    }
+
+    .pagination {
+        gap: 3px;
+    }
+
+    .pagination span {
+        width: 4px;
+        height: 4px;
+    }
+
+    .pagination span.active {
+        width: 15px;
+    }
 }
