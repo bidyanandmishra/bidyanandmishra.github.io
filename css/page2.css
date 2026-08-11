@@ -1,3 +1,6 @@
+page2_corrected.css
+
+
 /* =========================================================
    GLOBAL
 ========================================================= */
@@ -1409,32 +1412,4 @@ body {
     .pagination span.active {
         width: 15px;
     }
-}
-{
-        left: 1%;
-        top: 25%;
-    }
-
-    .balloon-left-bottom {
-        left: -1%;
-        bottom: 15%;
-    }
-
-    .balloon-right-top {
-        right: 1%;
-        top: 25%;
-    }
-
-    .balloon-right-bottom {
-        right: -1%;
-        bottom: 15%;
-    }
-
-
-    /* Floating hearts */
-
-    .floating-heart {
-        font-size: 18px;
-    }
-
 }
