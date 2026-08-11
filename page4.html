@@ -25,7 +25,8 @@ body {
 }
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     font-family:
         Arial,
@@ -154,16 +155,24 @@ body {
 
     max-width: 1100px;
 
-    height:
-        calc(100vh - 118px);
+    /*
+       Content-driven height.
+       The card grows when the image/text needs more space.
+       It is NOT locked to the browser viewport height.
+    */
+    height: auto;
 
     min-height: 700px;
 
     margin:
         30px auto;
 
+    /*
+       Extra bottom space keeps the navigation inside the card
+       without overlapping the content.
+    */
     padding:
-        70px 55px 30px;
+        70px 55px 95px;
 
     border-radius: 35px;
 
@@ -184,7 +193,7 @@ body {
         inset 0 0 50px
         rgba(255,255,255,0.015);
 
-    overflow: hidden;
+    overflow: visible;
 
     z-index: 5;
 }
@@ -320,6 +329,10 @@ body {
 
     width: 55%;
 
+    /*
+       Fixed image height, but the OUTER card remains
+       content-driven. The image will scale inside this box.
+    */
     height: 300px;
 
     margin:
@@ -1099,6 +1112,15 @@ body {
 
 @media (max-width: 550px) {
 
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
     .birthday-title {
 
         font-size: 25px;
@@ -1114,15 +1136,19 @@ body {
         width: 96%;
 
         margin:
-            15px auto;
+            15px auto 25px;
 
-        height:
-            calc(100vh - 105px);
+        /*
+           IMPORTANT:
+           Do not force the card to viewport height.
+           It grows naturally when content requires it.
+        */
+        height: auto;
 
         min-height: 600px;
 
         padding:
-            45px 15px 25px;
+            45px 15px 85px;
     }
 
     .title {
@@ -1166,6 +1192,7 @@ body {
 
         left: 12px;
         right: 12px;
+        bottom: 18px;
     }
 
     .nav-button {
@@ -1174,6 +1201,82 @@ body {
 
         padding:
             9px 13px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL / SHORT SCREENS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .main-card {
+        width: calc(100% - 12px);
+        min-height: 560px;
+        margin: 10px auto 20px;
+        padding: 38px 10px 82px;
+        border-radius: 24px;
+    }
+
+    .title {
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    .title-heart {
+        font-size: 22px;
+    }
+
+    .camera {
+        font-size: 21px;
+    }
+
+    .memory-box {
+        width: 94%;
+        height: 170px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+
+    .quote-area {
+        width: 100%;
+        min-height: 135px;
+        padding: 10px 22px;
+    }
+
+    #animatedText {
+        font-size: 12px;
+        line-height: 1.65;
+    }
+
+    .quote-mark {
+        font-size: 40px;
+    }
+
+    .navigation {
+        left: 8px;
+        right: 8px;
+        bottom: 12px;
+    }
+
+    .nav-button {
+        min-width: 68px;
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
+    .pagination {
+        gap: 4px;
+    }
+
+    .pagination span {
+        width: 5px;
+        height: 5px;
+    }
+
+    .pagination span.active {
+        width: 18px;
     }
 }
 

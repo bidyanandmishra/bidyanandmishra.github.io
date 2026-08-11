@@ -26,7 +26,8 @@ body {
 }
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     font-family:
         Arial,
@@ -155,16 +156,24 @@ body {
 
     max-width: 1100px;
 
-    height:
-        calc(100vh - 118px);
+    /*
+       Content-responsive container.
+       It has a comfortable minimum height, but grows
+       naturally when the content needs more space.
+    */
+    height: auto;
 
     min-height: 700px;
 
     margin:
-        30px auto;
+        30px auto 35px;
 
+    /*
+       Extra bottom space keeps Back/Next inside the
+       container without overlapping the content.
+    */
     padding:
-        70px 55px 30px;
+        70px 55px 95px;
 
     border-radius: 35px;
 
@@ -185,7 +194,7 @@ body {
         inset 0 0 50px
         rgba(255,255,255,0.015);
 
-    overflow: hidden;
+    overflow: visible;
 
     z-index: 5;
 }
@@ -1174,6 +1183,264 @@ body {
     }
 }
 
+
+/* =========================================================
+   CONTENT-RESPONSIVE NAVIGATION
+   ========================================================= */
+
+.main-card > .nav {
+    position: relative;
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 50;
+}
+
+.main-card > .nav a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 80px;
+    height: 34px;
+
+    padding: 0 14px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 12px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+.main-card > .nav a:hover {
+    transform: translateY(-2px);
+
+    border-color: #ff64b3;
+
+    background:
+        rgba(255,75,170,0.1);
+
+    box-shadow:
+        0 0 14px rgba(255,75,170,0.25);
+}
+
+.main-card > .nav .dots {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+}
+
+.main-card > .nav .dots i {
+    display: block;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.25);
+}
+
+.main-card > .nav .dots i.active {
+    width: 22px;
+    height: 6px;
+
+    border-radius: 10px;
+
+    background: #ff5fb0;
+
+    box-shadow:
+        0 0 10px #ff5fb0;
+}
+
+
+/* =========================================================
+   MOBILE - CARD GROWS WITH CONTENT
+   ========================================================= */
+
+@media (max-width: 550px) {
+
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .main-card {
+        width: 96%;
+
+        /*
+           No viewport-locked height.
+           The card expands as content grows.
+        */
+        height: auto;
+
+        min-height: 560px;
+
+        margin:
+            15px auto 25px;
+
+        padding:
+            45px 15px 25px;
+
+        border-radius: 24px;
+
+        overflow: visible;
+    }
+
+    .title {
+        font-size: 25px;
+        line-height: 1.25;
+    }
+
+    .camera {
+        font-size: 25px;
+    }
+
+    .memory-box {
+        width: 90%;
+        height: 190px;
+    }
+
+    .quote-area {
+        width: 100%;
+
+        min-height: 145px;
+
+        padding:
+            10px 25px;
+    }
+
+    #animatedText {
+        font-size: 14px;
+
+        line-height: 1.8;
+
+        overflow-wrap: anywhere;
+    }
+
+    .quote-mark {
+        font-size: 45px;
+    }
+
+    .main-card > .nav {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+
+        margin-top: 18px;
+
+        height: 32px;
+    }
+
+    .main-card > .nav a {
+        min-width: 68px;
+        width: 68px;
+
+        height: 29px;
+
+        padding: 0 8px;
+
+        font-size: 10px;
+    }
+
+    .main-card > .nav .dots {
+        gap: 4px;
+    }
+
+    .main-card > .nav .dots i {
+        width: 5px;
+        height: 5px;
+    }
+
+    .main-card > .nav .dots i.active {
+        width: 18px;
+        height: 5px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .main-card {
+        width: calc(100% - 12px);
+
+        min-height: 540px;
+
+        padding:
+            38px 10px 22px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .camera {
+        font-size: 21px;
+    }
+
+    .memory-box {
+        width: 94%;
+        height: 170px;
+    }
+
+    .quote-area {
+        padding:
+            10px 20px;
+    }
+
+    #animatedText {
+        font-size: 12px;
+        line-height: 1.65;
+    }
+
+    .main-card > .nav a {
+        min-width: 60px;
+        width: 60px;
+
+        height: 27px;
+
+        font-size: 9px;
+    }
+}
+
 </style>
 </head>
 
@@ -1420,10 +1687,10 @@ body {
         <div class="dots">
             <i></i>
             <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
             <i class="active"></i>
-            <i></i>
-            <i></i>
-            <i></i>
             <i></i>
             <i></i>
         </div>
