@@ -1024,3 +1024,284 @@ body {
         opacity: 0.45;
     }
 }
+
+/* =========================================================
+   MOBILE FIX FOR PAGE 2
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .top-header {
+        height: 60px;
+        padding-left: 12px;
+    }
+
+    .birthday-title {
+        font-size: 24px;
+    }
+
+    .header-heart {
+        font-size: 27px;
+        margin-right: 7px;
+    }
+
+
+    /* Main card */
+
+    .main-card {
+        width: calc(100% - 20px);
+        height: calc(100vh - 75px);
+
+        min-height: 0;
+
+        margin: 10px auto;
+
+        padding:
+            38px 12px 65px;
+
+        border-radius: 24px;
+    }
+
+
+    /* Page number */
+
+    .page-number {
+        top: 12px;
+        right: 15px;
+
+        font-size: 12px;
+    }
+
+
+    /* Heading */
+
+    .heading-area {
+        margin-bottom: 12px;
+    }
+
+    .heading-heart {
+        font-size: 22px;
+    }
+
+    .heading-area h1 {
+        font-size: 25px;
+
+        line-height: 1.2;
+
+        margin-top: 5px;
+    }
+
+    .heading-area h1 span {
+        font-size: 22px;
+    }
+
+
+    /* Heading lines */
+
+    .heading-decoration {
+        margin-top: 6px;
+        gap: 8px;
+    }
+
+    .heading-decoration span {
+        width: 65px;
+    }
+
+    .heading-decoration b {
+        font-size: 22px;
+    }
+
+
+    /* =====================================================
+       MESSAGE BOX
+    ===================================================== */
+
+    .message-box {
+
+        width: 100%;
+
+        /*
+           Use available screen height
+           instead of fixed 520px.
+        */
+
+        height: calc(100vh - 265px);
+
+        min-height: 330px;
+
+        max-height: 440px;
+
+        padding:
+            18px 14px;
+
+        border-radius: 16px;
+    }
+
+
+    /* Remove left decorative icons
+       because they take too much room */
+
+    .message-decoration {
+        display: none;
+    }
+
+
+    /* Text container */
+
+    .message-content {
+
+        width: 100%;
+
+        height: 100%;
+
+        padding:
+            5px 3px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    /* =====================================================
+       WORD-BY-WORD TEXT
+    ===================================================== */
+
+    #messageText {
+
+        width: 100%;
+
+        font-family:
+            "Courier New",
+            monospace;
+
+        font-size: 13px;
+
+        line-height: 1.7;
+
+        text-align: left;
+
+        overflow-wrap: break-word;
+
+        word-break: normal;
+
+        max-width: 100%;
+    }
+
+
+    .word {
+
+        margin-right: 3px;
+    }
+
+
+    /* Cursor */
+
+    .cursor {
+
+        width: 2px;
+
+        height: 17px;
+
+        margin-left: 2px;
+    }
+
+
+    /* Bottom decoration */
+
+    .message-bottom-decoration {
+        display: none;
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+
+    .navigation {
+
+        left: 12px;
+        right: 12px;
+
+        bottom: 12px;
+    }
+
+    .nav-button {
+
+        min-width: 70px;
+
+        padding:
+            8px 10px;
+
+        font-size: 12px;
+    }
+
+
+    /* Pagination */
+
+    .pagination {
+
+        gap: 4px;
+    }
+
+    .pagination span {
+
+        width: 5px;
+        height: 5px;
+    }
+
+    .pagination span.active {
+
+        width: 18px;
+    }
+
+
+    /* =====================================================
+       BALLOONS
+    ===================================================== */
+
+    .balloon-body {
+
+        width: 45px;
+        height: 65px;
+    }
+
+    .balloon-string {
+
+        height: 60px;
+    }
+
+    .balloon-left-top {
+        left: 1%;
+        top: 25%;
+    }
+
+    .balloon-left-bottom {
+        left: -1%;
+        bottom: 15%;
+    }
+
+    .balloon-right-top {
+        right: 1%;
+        top: 25%;
+    }
+
+    .balloon-right-bottom {
+        right: -1%;
+        bottom: 15%;
+    }
+
+
+    /* Floating hearts */
+
+    .floating-heart {
+        font-size: 18px;
+    }
+
+}

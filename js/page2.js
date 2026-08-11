@@ -19,20 +19,6 @@ const message = [
     },
 
     {
-        text: "I never knew that one person could become",
-        highlights: [
-            "one person"
-        ]
-    },
-
-    {
-        text: "such an important part of my entire world.",
-        highlights: [
-            "my entire world"
-        ]
-    },
-
-    {
         text: "Before you came into my life, I didn't know",
         highlights: [
             "my life"
@@ -40,52 +26,26 @@ const message = [
     },
 
     {
-        text: "how beautiful it could be to have someone",
+        text: "how beautiful it could be to have someone who truly feels like home",
         highlights: [
-            "beautiful"
+            "beautiful", "home"
         ]
     },
 
     {
-        text: "who truly feels like home.",
+        text: "You slowly became my favorite person, my favorite conversation, my favorite smile, and my favorite part of every day. ",
         highlights: [
-            "home"
-        ]
-    },
-
-    {
-        text: "You slowly became my favorite person,",
-        highlights: [
-            "favorite person"
-        ]
-    },
-
-    {
-        text: "my favorite conversation, my favorite smile,",
-        highlights: [
+            "favorite person", 
             "favorite conversation",
-            "favorite smile"
-        ]
-    },
-
-    {
-        text: "and my favorite part of every day.",
-        highlights: [
+            "favorite smile", 
             "every day"
         ]
     },
 
     {
-        text: "And today, when I look at you, I realize",
+        text: "And today, when I look at you, I realize how lucky I am that our paths crossed. 💖✨",
         highlights: [
-            "you"
-        ]
-    },
-
-    {
-        text: "how lucky I am that our paths crossed. 💖✨",
-        highlights: [
-            "lucky"
+            "you", "lucky"
         ]
     }
 ];
