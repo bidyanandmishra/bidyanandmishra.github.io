@@ -1,129 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Something For You ❤️</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Something For You ❤️</title>
+
+    <link rel="stylesheet" href="css/page2.css">
 </head>
 
 <body>
 
-<div class="page-bg"></div>
+    <!-- ================= HEADER ================= -->
 
-<div class="glow g1"></div>
-<div class="glow g2"></div>
-<div class="glow g3"></div>
+    <header class="top-header">
+        <div class="birthday-title">
+            <span class="header-heart">♥</span>
+            Happy Birthday
+        </div>
+    </header>
 
-<header class="topbar">
 
-    <div class="brand">
-        <span class="brand-heart">♥</span>
-        <span>Happy Birthday</span>
+    <!-- ================= BACKGROUND ================= -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+
+    <!-- ================= BALLOONS ================= -->
+
+    <div class="balloon balloon-purple balloon-left-top">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
     </div>
 
-    <button class="music-btn" id="musicBtn">
-        <span id="musicIcon">♫</span>
-    </button>
+    <div class="balloon balloon-pink balloon-left-bottom">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+    </div>
 
-</header>
+    <div class="balloon balloon-blue balloon-right-top">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+    </div>
 
-<main class="main">
+    <div class="balloon balloon-pink balloon-right-bottom">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+    </div>
 
-<section class="card">
 
-    <div class="page-no">2 / 8</div>
+    <!-- ================= FLOATING HEARTS ================= -->
 
-    <div class="center">
+    <div class="floating-heart heart-1">♡</div>
+    <div class="floating-heart heart-2">♥</div>
+    <div class="floating-heart heart-3">♡</div>
+    <div class="floating-heart heart-4">♥</div>
+    <div class="floating-heart heart-5">♡</div>
+    <div class="floating-heart heart-6">♥</div>
 
-        <div class="content">
 
-            <span class="heart">♥</span>
+    <!-- ================= MAIN CARD ================= -->
 
-            <h2 class="small-title">
-                A Little Something For You 💕
-            </h2>
+    <main class="main-card">
 
-            <div class="letter">
+        <!-- Page number -->
 
-                <p>
-                    Today is not just another day.
-                    It is a reminder of how special you are
-                    and how lucky the people around you are
-                    to have you.
-                </p>
+        <div class="page-number">
+            2 / 9
+        </div>
 
-                <p>
-                    I wanted to create something a little
-                    different for you — a small collection
-                    of words, memories and wishes made
-                    especially for your birthday.
-                </p>
 
-                <p>
-                    So take your time, enjoy every page,
-                    and most importantly... smile. ❤️
-                </p>
+        <!-- Heading -->
 
-                <div class="quote">
-                    "Some people make ordinary moments
-                    feel extraordinary."
-                </div>
+        <div class="heading-area">
 
+            <div class="heading-heart">
+                ♥
+            </div>
+
+            <h1>
+                A Little Something For You
+                <span>💕</span>
+            </h1>
+
+            <div class="heading-decoration">
+                <span></span>
+                <b>♡</b>
+                <span></span>
             </div>
 
         </div>
 
-    </div>
 
-    <nav class="nav">
+        <!-- ================= MESSAGE BOX ================= -->
 
-        <a href="index.html">
-            ← Back
-        </a>
+        <section class="message-box">
 
-        <div class="dots">
-            <i></i>
-            <i class="active"></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
+            <!-- Decorative left icon -->
+
+            <div class="message-decoration">
+
+                <div>♧</div>
+                <div>✦</div>
+                <div>♡</div>
+                <div>✿</div>
+                <div>☆</div>
+                <div>⌂</div>
+                <div>♡</div>
+                <div>☏</div>
+                <div>✧</div>
+                <div>▣</div>
+                <div>▧</div>
+                <div>♥</div>
+                <div>♧</div>
+                <div>◉</div>
+                <div>♥</div>
+
+            </div>
+
+
+            <!-- Text -->
+
+            <div class="message-content">
+
+                <div id="messageText"></div>
+
+                <span id="cursor" class="cursor"></span>
+
+            </div>
+
+
+            <!-- Decorative bottom -->
+
+            <div class="message-bottom-decoration">
+
+                <span>♡</span>
+
+                <div class="curved-line"></div>
+
+                <span>♡</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= NAVIGATION ================= -->
+
+        <div class="navigation">
+
+            <button
+                class="nav-button"
+                onclick="previousPage()">
+
+                ← Back
+
+            </button>
+
+
+            <!-- Pagination -->
+
+            <div class="pagination">
+
+                <span></span>
+
+                <span class="active"></span>
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <button
+                class="nav-button"
+                onclick="nextPage()">
+
+                Next →
+
+            </button>
+
         </div>
 
-        <a href="page3.html">
-            Next →
-        </a>
+    </main>
 
-    </nav>
 
-</section>
-
-</main>
-
-<div class="balloons left">
-    <span class="balloon purple"></span>
-    <span class="balloon pink"></span>
-</div>
-
-<div class="balloons right">
-    <span class="balloon blue"></span>
-    <span class="balloon pink"></span>
-</div>
-
-<div class="bottom">
-    <span class="balloon blue"></span>
-    <span class="balloon yellow"></span>
-    <span class="balloon pink"></span>
-</div>
-
-<audio id="music" loop>
-    <source src="music/birthday.mp3" type="audio/mpeg">
-</audio>
-
-<script src="js/script.js"></script>
+    <script src="js/page2.js"></script>
 
 </body>
 </html>

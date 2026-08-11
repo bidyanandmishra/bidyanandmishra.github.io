@@ -3,111 +3,1787 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Another Favorite Moment ❤️</title>
-<link rel="stylesheet" href="css/style.css">
+
+<title>A Beautiful Memory ❤️</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(196, 70, 255, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #100d17 0%,
+            #19132a 45%,
+            #211735 70%,
+            #100d18 100%
+        );
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.top-header {
+    height: 88px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 18px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.015),
+            rgba(255,70,180,0.05),
+            rgba(255,255,255,0.015)
+        );
+
+    position: relative;
+
+    z-index: 20;
+}
+
+.birthday-title {
+    font-size: 35px;
+
+    font-weight: 700;
+
+    color: #f18bc6;
+
+    text-shadow:
+        0 0 8px rgba(255,77,175,0.7),
+        0 0 25px rgba(255,77,175,0.3);
+}
+
+.birthday-heart {
+    color: #ff4f91;
+
+    font-size: 38px;
+
+    margin-right: 10px;
+
+    display: inline-block;
+
+    animation:
+        heartbeat 1.6s infinite;
+
+    text-shadow:
+        0 0 10px #ff4f91,
+        0 0 25px #ff4f91;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.glow {
+    position: fixed;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    filter: blur(110px);
+
+    opacity: 0.16;
+
+    pointer-events: none;
+}
+
+.glow-one {
+    left: 18%;
+    top: 10%;
+
+    background: #db45ff;
+}
+
+.glow-two {
+    right: 5%;
+    bottom: -10%;
+
+    background: #7446ff;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.main-card {
+
+    position: relative;
+
+    width: 63%;
+
+    max-width: 1100px;
+
+    height:
+        calc(100vh - 118px);
+
+    min-height: 700px;
+
+    margin:
+        30px auto;
+
+    padding:
+        70px 55px 30px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(38,30,47,0.96),
+            rgba(17,16,27,0.97)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 0 60px
+        rgba(255,60,175,0.08),
+
+        inset 0 0 50px
+        rgba(255,255,255,0.015);
+
+    overflow: hidden;
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   PAGE NUMBER
+========================================================= */
+
+.page-number {
+
+    position: absolute;
+
+    right: 30px;
+    top: 20px;
+
+    font-size: 14px;
+
+    color:
+        rgba(255,255,255,0.42);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.title-area {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.title-heart {
+
+    font-size: 30px;
+
+    color: #ff5b9d;
+
+    margin-bottom: 8px;
+
+    display: inline-block;
+
+    animation:
+        heartbeat 1.8s infinite;
+
+    text-shadow:
+        0 0 12px #ff5b9d;
+}
+
+.title {
+
+    font-size: 43px;
+
+    font-weight: 500;
+
+    color: #ed86c3;
+
+    text-shadow:
+        0 0 10px
+        rgba(255,80,180,0.45);
+}
+
+.camera {
+
+    font-size: 36px;
+
+    margin-left: 10px;
+
+    vertical-align: middle;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,255,255,0.35)
+        );
+}
+
+
+/* =========================================================
+   TITLE DECORATION
+========================================================= */
+
+.title-decoration {
+
+    margin:
+        10px auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+}
+
+.title-decoration .line {
+
+    width: 180px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff64b2,
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px #ff64b2;
+}
+
+.title-decoration .heart {
+
+    color: #ff68b4;
+
+    font-size: 30px;
+
+    text-shadow:
+        0 0 12px #ff68b4;
+}
+
+
+/* =========================================================
+   MEMORY IMAGE BOX
+========================================================= */
+
+.memory-box {
+
+    width: 55%;
+
+    height: 300px;
+
+    margin:
+        25px auto 25px;
+
+    border-radius: 20px;
+
+    border:
+        4px solid transparent;
+
+    background:
+        linear-gradient(
+            #171521,
+            #171521
+        ) padding-box,
+
+        linear-gradient(
+            135deg,
+            #e96cbd,
+            #7547e8
+        ) border-box;
+
+    box-shadow:
+        0 0 25px
+        rgba(211,85,205,0.2);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/*
+   Replace this with your actual image
+*/
+
+.memory-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 15px;
+}
+
+.memory-box img.loaded {
+    opacity: 1;
+}
+
+
+/* Placeholder */
+
+.memory-placeholder {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color:
+        rgba(255,255,255,0.45);
+
+    font-size: 16px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   QUOTE BOX
+========================================================= */
+
+.quote-area {
+
+    position: relative;
+
+    width: 90%;
+
+    margin:
+        0 auto;
+
+    min-height: 145px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        15px 35px;
+}
+
+
+/* Quote marks */
+
+.quote-mark {
+
+    position: absolute;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 70px;
+
+    color: #ff65b2;
+
+    opacity: 0.95;
+
+    text-shadow:
+        0 0 12px #ff65b2;
+}
+
+.quote-left {
+
+    left: 0;
+
+    top: -5px;
+}
+
+.quote-right {
+
+    right: 0;
+
+    bottom: -25px;
+}
+
+
+/* =========================================================
+   ANIMATED TEXT
+========================================================= */
+
+#animatedText {
+
+    width: 100%;
+
+    text-align: center;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 19px;
+
+    line-height: 2;
+
+    color: #eeeeee;
+
+    min-height: 100px;
+}
+
+
+/*
+   Every word starts invisible.
+*/
+
+.word {
+
+    display: inline-block;
+
+    opacity: 0;
+
+    transform:
+        translateY(18px)
+        scale(0.94);
+
+    filter: blur(5px);
+
+    margin-right: 7px;
+
+    animation:
+        wordReveal
+        0.55s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+/*
+   Important romantic words
+*/
+
+.word.highlight {
+
+    color: #ff58ad;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 8px
+        rgba(255,65,170,0.7),
+
+        0 0 18px
+        rgba(255,65,170,0.35);
+}
+
+
+/* Cursor */
+
+.typing-cursor {
+
+    display: inline-block;
+
+    width: 3px;
+
+    height: 23px;
+
+    margin-left: 3px;
+
+    vertical-align: middle;
+
+    background: #ff68b5;
+
+    box-shadow:
+        0 0 10px #ff68b5;
+
+    animation:
+        cursorBlink
+        0.8s
+        infinite;
+}
+
+
+/* =========================================================
+   BOTTOM DECORATION
+========================================================= */
+
+.bottom-decoration {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 5px;
+
+    color: #ff69b5;
+}
+
+.bottom-decoration .line {
+
+    width: 130px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff69b5,
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px #ff69b5;
+}
+
+.bottom-decoration .heart {
+
+    font-size: 30px;
+
+    text-shadow:
+        0 0 12px #ff69b5;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navigation {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 28px;
+    right: 28px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.nav-button {
+
+    padding:
+        11px 23px;
+
+    min-width: 105px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        0.3s ease;
+}
+
+.nav-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        #ff64b3;
+
+    background:
+        rgba(255,75,170,0.1);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,75,170,0.25);
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination {
+
+    display: flex;
+
+    gap: 7px;
+
+    align-items: center;
+}
+
+.pagination span {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.25);
+}
+
+.pagination span.active {
+
+    width: 24px;
+
+    border-radius: 10px;
+
+    background:
+        #ff5fb0;
+
+    box-shadow:
+        0 0 10px #ff5fb0;
+}
+
+
+/* =========================================================
+   BALLOONS
+========================================================= */
+
+.balloon {
+
+    position: fixed;
+
+    z-index: 2;
+
+    animation:
+        balloonFloat
+        4s
+        ease-in-out
+        infinite;
+
+    pointer-events: none;
+}
+
+.balloon-body {
+
+    width: 85px;
+
+    height: 110px;
+
+    border-radius:
+        50% 50% 48% 48%;
+
+    position: relative;
+}
+
+.balloon-body::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: -8px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border-left:
+        7px solid transparent;
+
+    border-right:
+        7px solid transparent;
+
+    border-top:
+        10px solid currentColor;
+}
+
+.balloon-string {
+
+    width: 2px;
+
+    height: 110px;
+
+    margin: auto;
+
+    background:
+        rgba(255,255,255,0.65);
+}
+
+
+/* Purple */
+
+.balloon-purple {
+    color: #934bed;
+}
+
+.balloon-purple .balloon-body {
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #bc88ff,
+            #9148e7
+        );
+
+    box-shadow:
+        0 0 25px #934bed;
+}
+
+
+/* Pink */
+
+.balloon-pink {
+    color: #ed4fa7;
+}
+
+.balloon-pink .balloon-body {
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #ff9bda,
+            #eb4ca6
+        );
+
+    box-shadow:
+        0 0 25px #ed4fa7;
+}
+
+
+/* Blue */
+
+.balloon-blue {
+    color: #43afe8;
+}
+
+.balloon-blue .balloon-body {
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #8bd9ff,
+            #3daee8
+        );
+
+    box-shadow:
+        0 0 25px #43afe8;
+}
+
+
+.balloon-left-top {
+
+    left: 3%;
+
+    top: 26%;
+}
+
+.balloon-left-bottom {
+
+    left: 0%;
+
+    bottom: 18%;
+}
+
+.balloon-right-top {
+
+    right: 3%;
+
+    top: 29%;
+}
+
+.balloon-right-bottom {
+
+    right: 0%;
+
+    bottom: 18%;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.floating-heart {
+
+    position: fixed;
+
+    z-index: 3;
+
+    color: #ff60b0;
+
+    font-size: 22px;
+
+    opacity: 0.65;
+
+    text-shadow:
+        0 0 10px #ff60b0;
+
+    animation:
+        floatHeart
+        4s
+        ease-in-out
+        infinite;
+}
+
+.heart1 {
+    right: 12%;
+    top: 42%;
+}
+
+.heart2 {
+    right: 15%;
+    top: 55%;
+
+    animation-delay: 1s;
+}
+
+.heart3 {
+    right: 8%;
+    top: 60%;
+
+    animation-delay: 2s;
+}
+
+.heart4 {
+    left: 14%;
+    bottom: 25%;
+
+    animation-delay: 1.5s;
+}
+
+.heart5 {
+    left: 19%;
+    top: 50%;
+
+    animation-delay: 0.5s;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes wordReveal {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.94);
+
+        filter:
+            blur(5px);
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            translateY(-2px)
+            scale(1.02);
+
+        filter:
+            blur(0);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+@keyframes cursorBlink {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.17);
+    }
+}
+
+
+@keyframes balloonFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+
+        transform:
+            translateY(-20px)
+            rotate(3deg);
+    }
+}
+
+
+@keyframes floatHeart {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity: 0.45;
+    }
+
+    50% {
+
+        transform:
+            translateY(-25px)
+            scale(1.15);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .main-card {
+
+        width: 78%;
+    }
+
+    .memory-box {
+
+        width: 60%;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .main-card {
+
+        width: 92%;
+
+        padding:
+            55px 25px 30px;
+    }
+
+    .title {
+
+        font-size: 32px;
+    }
+
+    .memory-box {
+
+        width: 80%;
+
+        height: 240px;
+    }
+
+    #animatedText {
+
+        font-size: 16px;
+    }
+
+    .balloon-body {
+
+        width: 60px;
+
+        height: 80px;
+    }
+
+    .balloon-string {
+
+        height: 80px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .birthday-title {
+
+        font-size: 25px;
+    }
+
+    .birthday-heart {
+
+        font-size: 28px;
+    }
+
+    .main-card {
+
+        width: 96%;
+
+        margin:
+            15px auto;
+
+        height:
+            calc(100vh - 105px);
+
+        min-height: 600px;
+
+        padding:
+            45px 15px 25px;
+    }
+
+    .title {
+
+        font-size: 25px;
+    }
+
+    .camera {
+
+        font-size: 25px;
+    }
+
+    .memory-box {
+
+        width: 90%;
+
+        height: 190px;
+    }
+
+    .quote-area {
+
+        width: 100%;
+
+        padding:
+            10px 25px;
+    }
+
+    #animatedText {
+
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+
+    .quote-mark {
+
+        font-size: 45px;
+    }
+
+    .navigation {
+
+        left: 12px;
+        right: 12px;
+    }
+
+    .nav-button {
+
+        min-width: 80px;
+
+        padding:
+            9px 13px;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-<div class="page-bg"></div>
 
-<div class="glow g1"></div>
-<div class="glow g2"></div>
-<div class="glow g3"></div>
+<!-- =======================================================
+     HEADER
+======================================================== -->
 
-<header class="topbar">
+<header class="top-header">
 
-    <div class="brand">
-        <span class="brand-heart">♥</span>
-        <span>Happy Birthday</span>
+    <div class="birthday-title">
+
+        <span class="birthday-heart">♥</span>
+
+        Happy Birthday
+
     </div>
-
-    <button class="music-btn" id="musicBtn">
-        <span id="musicIcon">♫</span>
-    </button>
 
 </header>
 
-<main class="main">
 
-<section class="card">
 
-    <div class="page-no">6 / 8</div>
+<!-- Background glow -->
 
-    <div class="center">
+<div class="glow glow-one"></div>
 
-        <div class="content">
+<div class="glow glow-two"></div>
 
-            <span class="heart">♥</span>
 
-            <h2 class="small-title">
-                Another Favorite Moment 🥰
-            </h2>
 
-            <div class="photo">
+<!-- =======================================================
+     BALLOONS
+======================================================== -->
 
-                <img
-                    src="images/photo2.jpg"
-                    alt="Favorite memory">
+<div class="balloon balloon-purple balloon-left-top">
 
-            </div>
+    <div class="balloon-body"></div>
 
-            <p class="message">
-                I want to grow old with you, laugh with you, travel with you, annoy you, and still hold your hand through everything. ❤️
-            </p>
+    <div class="balloon-string"></div>
+
+</div>
+
+
+<div class="balloon balloon-pink balloon-left-bottom">
+
+    <div class="balloon-body"></div>
+
+    <div class="balloon-string"></div>
+
+</div>
+
+
+<div class="balloon balloon-blue balloon-right-top">
+
+    <div class="balloon-body"></div>
+
+    <div class="balloon-string"></div>
+
+</div>
+
+
+<div class="balloon balloon-pink balloon-right-bottom">
+
+    <div class="balloon-body"></div>
+
+    <div class="balloon-string"></div>
+
+</div>
+
+
+
+<!-- =======================================================
+     FLOATING HEARTS
+======================================================== -->
+
+<div class="floating-heart heart1">♥</div>
+
+<div class="floating-heart heart2">♡</div>
+
+<div class="floating-heart heart3">♥</div>
+
+<div class="floating-heart heart4">♡</div>
+
+<div class="floating-heart heart5">♥</div>
+
+
+
+<!-- =======================================================
+     MAIN CARD
+======================================================== -->
+
+<main class="main-card">
+
+
+    <!-- Page number -->
+
+    <div class="page-number">
+
+        6 / 9
+
+    </div>
+
+
+
+    <!-- ===================================================
+         TITLE
+    ==================================================== -->
+
+    <div class="title-area">
+
+        <div class="title-heart">
+
+            ♥
+
+        </div>
+
+
+        <div class="title">
+
+            Another Favorite Moment 
+
+            <span class="camera">🥰</span>
+
+        </div>
+
+
+        <div class="title-decoration">
+
+            <span class="line"></span>
+
+            <span class="heart">♡</span>
+
+            <span class="line"></span>
 
         </div>
 
     </div>
 
-    <nav class="nav">
 
-        <a href="page5.html">
-            ← Back
-        </a>
 
-        <div class="dots">
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i class="active"></i>
-            <i></i>
-            <i></i>
+    <!-- ===================================================
+         MEMORY IMAGE
+    ==================================================== -->
+
+    <div class="memory-box">
+
+        <div class="memory-placeholder">
+            <img src="images/photo2.jpg" alt="💗 Birthday memory 💗">
         </div>
 
-        <a href="page7.html">
+    </div>
+
+
+
+    <!-- ===================================================
+         QUOTE
+    ==================================================== -->
+
+    <div class="quote-area">
+
+        <div class="quote-mark quote-left">
+            “
+        </div>
+
+
+        <div id="animatedText"></div>
+
+
+        <span
+            id="typingCursor"
+            class="typing-cursor">
+        </span>
+
+
+        <div class="quote-mark quote-right">
+            ”
+        </div>
+
+    </div>
+
+
+
+    <!-- Bottom decoration -->
+
+    <div class="bottom-decoration">
+
+        <span class="line"></span>
+
+        <span class="heart">
+            ♡
+        </span>
+
+        <span class="line"></span>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         NAVIGATION
+    ==================================================== -->
+
+    <div class="navigation">
+        <button
+            class="nav-button"
+            onclick="window.location.href='page5.html'">
+
+            ← Back
+
+        </button>
+
+
+
+        <div class="pagination">
+
+            <span></span>
+
+            <span></span>
+
+            <span></span>
+
+            <span class="active"></span>
+
+            <span></span>
+
+            <span></span>
+
+            <span></span>
+
+            <span></span>
+
+        </div>
+
+
+
+        <button
+            class="nav-button"
+            onclick="window.location.href='page7.html'">
+
             Next →
-        </a>
 
-    </nav>
-
-</section>
+        </button>
+        
+    </div>
 
 </main>
 
-<div class="balloons left">
-    <span class="balloon purple"></span>
-    <span class="balloon pink"></span>
-</div>
 
-<div class="balloons right">
-    <span class="balloon blue"></span>
-    <span class="balloon pink"></span>
-</div>
 
-<div class="bottom">
-    <span class="balloon blue"></span>
-    <span class="balloon yellow"></span>
-    <span class="balloon pink"></span>
-</div>
+<script>
 
-<audio id="music" loop>
-    <source src="music/birthday.mp3" type="audio/mpeg">
-</audio>
+/* =========================================================
+   PAGE 4 MESSAGE
+========================================================= */
 
-<script src="js/script.js"></script>
+const message = `
+I want to grow old with you, 
+laugh with you, 
+travel with you, 
+annoy you, 
+and still hold your hand 
+through everything. ❤️
+`;
+
+
+
+/* =========================================================
+   WORDS TO HIGHLIGHT
+========================================================= */
+
+const highlightedWords = [
+
+    "journey",
+
+    "big moments",
+
+    "little things",
+
+    "conversations",
+
+    "laughter",
+
+    "silly fights",
+
+    "moments",
+
+    "together",
+
+    "enough"
+
+];
+
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+/*
+   Increase this number to make the
+   animation slower.
+
+   120 = fast
+   160 = romantic
+   200 = slow
+*/
+
+const WORD_DELAY = 150;
+
+
+/*
+   Delay between lines.
+*/
+
+const LINE_DELAY = 350;
+
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const textContainer =
+    document.getElementById(
+        "animatedText"
+    );
+
+const cursor =
+    document.getElementById(
+        "typingCursor"
+    );
+
+
+
+/* =========================================================
+   CHECK HIGHLIGHT
+========================================================= */
+
+function shouldHighlight(word) {
+
+    const cleanWord =
+        word
+            .toLowerCase()
+            .replace(
+                /[^a-zA-ZÀ-ÿ'-]/g,
+                ""
+            );
+
+
+    return highlightedWords.some(
+        phrase => {
+
+            const words =
+                phrase
+                    .toLowerCase()
+                    .split(" ");
+
+            return words.includes(
+                cleanWord
+            );
+
+        }
+    );
+}
+
+
+
+/* =========================================================
+   CREATE WORD
+========================================================= */
+
+function createWord(
+    word,
+    delay
+) {
+
+    const span =
+        document.createElement(
+            "span"
+        );
+
+
+    span.classList.add(
+        "word"
+    );
+
+
+    span.textContent =
+        word;
+
+
+    if (
+        shouldHighlight(word)
+    ) {
+
+        span.classList.add(
+            "highlight"
+        );
+
+    }
+
+
+    span.style.animationDelay =
+        `${delay}ms`;
+
+
+    return span;
+}
+
+
+
+/* =========================================================
+   START TEXT ANIMATION
+========================================================= */
+
+function startTextAnimation() {
+
+    /*
+       Clear previous animation
+    */
+
+    textContainer.innerHTML =
+        "";
+
+
+    cursor.style.display =
+        "inline-block";
+
+
+    /*
+       Split message into lines
+    */
+
+    const lines =
+        message
+            .trim()
+            .split("\n")
+            .map(
+                line => line.trim()
+            )
+            .filter(
+                line => line.length > 0
+            );
+
+
+    let delay = 0;
+
+
+    lines.forEach(
+        (line, lineIndex) => {
+
+
+            /*
+               Create line
+            */
+
+            const lineElement =
+                document.createElement(
+                    "div"
+                );
+
+
+            /*
+               Split into words
+            */
+
+            const words =
+                line.split(" ");
+
+
+            words.forEach(
+                word => {
+
+
+                    const wordElement =
+                        createWord(
+                            word,
+                            delay
+                        );
+
+
+                    lineElement.appendChild(
+                        wordElement
+                    );
+
+
+                    /*
+                       Next word appears
+                       after WORD_DELAY
+                    */
+
+                    delay += WORD_DELAY;
+
+                }
+            );
+
+
+            textContainer.appendChild(
+                lineElement
+            );
+
+
+            /*
+               Pause slightly
+               before next line
+            */
+
+            delay += LINE_DELAY;
+
+        }
+    );
+
+
+    /*
+       Keep cursor blinking after
+       animation finishes.
+    */
+
+    setTimeout(
+        () => {
+
+            cursor.style.display =
+                "inline-block";
+
+        },
+        delay + 500
+    );
+
+}
+
+
+
+/* =========================================================
+   START WHEN PAGE LOADS
+========================================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        /*
+           Small delay before starting
+           makes page feel smoother.
+        */
+
+        setTimeout(
+            startTextAnimation,
+            700
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   RESTART IF PAGE BECOMES VISIBLE
+========================================================= */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if (
+            document.visibilityState ===
+            "visible"
+        ) {
+
+            startTextAnimation();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function goBack() {
+
+    /*
+       Change this to your
+       actual Page 3 filename.
+    */
+
+    window.location.href =
+        "page3.html";
+
+}
+
+
+function goNext() {
+
+    /*
+       Change this to your
+       actual Page 5 filename.
+    */
+
+    window.location.href =
+        "page5.html";
+
+}
+
+</script>
+
 
 </body>
 </html>

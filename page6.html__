@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little Things I Love About You ❤️</title>
+<title>Another Favorite Moment ❤️</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -32,7 +32,7 @@
 
 <section class="card">
 
-    <div class="page-no">3 / 9</div>
+    <div class="page-no">6 / 9</div>
 
     <div class="center">
 
@@ -41,42 +41,20 @@
             <span class="heart">♥</span>
 
             <h2 class="small-title">
-                Little Things I Love About You
+                Another Favorite Moment 🥰
             </h2>
 
-            <div class="grid">
+            <div class="photo">
 
-                <div class="box">
-                    <span class="icon">✨</span>
-                    <span>Your beautiful smile</span>
-                </div>
-
-                <div class="box">
-                    <span class="icon">🌸</span>
-                    <span>The way you care</span>
-                </div>
-
-                <div class="box">
-                    <span class="icon">💫</span>
-                    <span>Your amazing energy</span>
-                </div>
-
-                <div class="box">
-                    <span class="icon">🥰</span>
-                    <span>Your cute little moments</span>
-                </div>
-
-                <div class="box">
-                    <span class="icon">🌙</span>
-                    <span>The peace you bring</span>
-                </div>
-
-                <div class="box">
-                    <span class="icon">❤️</span>
-                    <span>Simply being you</span>
-                </div>
+                <img
+                    src="images/photo2.jpg"
+                    alt="Favorite memory">
 
             </div>
+
+            <p class="message">
+                I want to grow old with you, laugh with you, travel with you, annoy you, and still hold your hand through everything. ❤️
+            </p>
 
         </div>
 
@@ -84,22 +62,22 @@
 
     <nav class="nav">
 
-        <a href="page2.html">
+        <a href="page5.html">
             ← Back
         </a>
 
         <div class="dots">
             <i></i>
             <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
             <i class="active"></i>
-            <i></i>
-            <i></i>
-            <i></i>
             <i></i>
             <i></i>
         </div>
 
-        <a href="page4.html">
+        <a href="page7.html">
             Next →
         </a>
 
