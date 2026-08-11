@@ -1,0 +1,2463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #f46ab8;
+    --pink-light: #ff8fd0;
+    --pink-dark: #d064a8;
+
+    --purple: #9857f4;
+    --purple-light: #a85cff;
+
+    --blue: #56b8ef;
+    --yellow: #ffd659;
+
+    --white: #ffffff;
+    --text: #eeeaf0;
+    --muted: #aaa7b4;
+
+    --background: #111119;
+    --card-background: rgba(25, 23, 34, 0.64);
+
+    --border: rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--white);
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.page-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+
+    background:
+        radial-gradient(
+            circle at 35% 15%,
+            rgba(227, 71, 176, 0.28),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 78% 50%,
+            rgba(129, 71, 230, 0.24),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #19131d 0%,
+            #11131c 52%,
+            #18101e 100%
+        );
+}
+
+.page-bg::after {
+    content: "";
+
+    position: absolute;
+    inset: 23% 0 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(87, 62, 170, 0.16),
+            rgba(33, 35, 72, 0.04),
+            rgba(255, 75, 176, 0.09)
+        );
+}
+
+
+/* =========================================================
+   GLOW EFFECTS
+========================================================= */
+
+.glow {
+    position: fixed;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    filter: blur(55px);
+
+    opacity: 0.32;
+
+    pointer-events: none;
+
+    z-index: -5;
+
+    animation: glowMove 8s ease-in-out infinite alternate;
+}
+
+.g1 {
+    top: -80px;
+    left: 32%;
+
+    background: #e34bd0;
+}
+
+.g2 {
+    right: -70px;
+    top: 38%;
+
+    background: #7553ff;
+
+    animation-delay: 2s;
+}
+
+.g3 {
+    left: -80px;
+    bottom: 5%;
+
+    background: #db45a5;
+
+    animation-delay: 4s;
+}
+
+@keyframes glowMove {
+
+    from {
+        transform: translateY(-10px) scale(0.95);
+    }
+
+    to {
+        transform: translateY(18px) scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.topbar {
+    width: 100%;
+    height: 108px;
+
+    padding: 0 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    background: rgba(15, 12, 19, 0.30);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    color: #f47bc0;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    font-size: 39px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 0 18px rgba(244, 106, 184, 0.16);
+}
+
+.brand-heart {
+    color: #ff4d83;
+
+    font-size: 42px;
+
+    filter:
+        drop-shadow(
+            0 0 10px rgba(255, 72, 120, 0.55)
+        );
+
+    animation:
+        heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-btn {
+    width: 70px;
+    height: 70px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff79d0,
+            #aa58db
+        );
+
+    color: white;
+
+    font-size: 37px;
+
+    cursor: pointer;
+
+    display: grid;
+    place-items: center;
+
+    box-shadow:
+        0 0 25px rgba(220, 89, 211, 0.38),
+
+        inset 0 1px rgba(255, 255, 255, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.music-btn:hover {
+    transform: scale(1.07);
+
+    box-shadow:
+        0 0 34px rgba(220, 89, 211, 0.52),
+
+        inset 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.music-btn.playing {
+    animation:
+        musicPulse 1.3s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 22px rgba(220, 89, 211, 0.35);
+    }
+
+    50% {
+        box-shadow:
+            0 0 40px rgba(220, 89, 211, 0.7);
+    }
+}
+
+
+/* =========================================================
+   MAIN AREA
+========================================================= */
+
+.main {
+    width: 100%;
+
+    min-height:
+        calc(100vh - 108px);
+
+    padding:
+        30px 28px 55px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.card {
+    width: min(1125px, 100%);
+
+    min-height: 700px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 38px;
+
+    background:
+        var(--card-background);
+
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, 0.04),
+
+        0 25px 90px rgba(0, 0, 0, 0.22);
+
+    backdrop-filter: blur(12px);
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0.025),
+            transparent 25%,
+            transparent 75%,
+            rgba(255, 90, 190, 0.025)
+        );
+}
+
+
+/* =========================================================
+   PAGE NUMBER
+========================================================= */
+
+.page-no {
+    position: absolute;
+
+    top: 20px;
+    right: 28px;
+
+    color:
+        rgba(255, 255, 255, 0.42);
+
+    font-size: 13px;
+
+    z-index: 4;
+}
+
+
+/* =========================================================
+   CENTER CONTENT
+========================================================= */
+
+.center {
+    min-height: 610px;
+
+    padding:
+        65px 35px 105px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+}
+
+.content {
+    width: 100%;
+
+    animation:
+        pageIn 0.65s ease both;
+}
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TITLES
+========================================================= */
+
+.title {
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(58px, 8vw, 91px);
+
+    line-height: 0.98;
+
+    color: #d28bb9;
+
+    margin-bottom: 18px;
+}
+
+.small-title {
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    color: #ef82bf;
+
+    font-size:
+        clamp(36px, 5vw, 60px);
+
+    font-weight: 400;
+
+    line-height: 1.1;
+
+    margin-bottom: 22px;
+}
+
+.subtitle {
+    font-size:
+        clamp(18px, 2vw, 24px);
+
+    color: #aaa7b4;
+
+    margin-bottom: 38px;
+}
+
+.heart {
+    color: #ff5689;
+
+    font-size: 42px;
+
+    display: block;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   GENERAL MESSAGE
+========================================================= */
+
+.message {
+    width: min(720px, 100%);
+
+    margin: 0 auto;
+
+    color: #d8d4df;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope {
+    width: 510px;
+    max-width: 90vw;
+    height: 245px;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    cursor: pointer;
+
+    filter:
+        drop-shadow(
+            0 18px 28px rgba(0, 0, 0, 0.20)
+        );
+
+    transition:
+        transform 0.3s ease;
+}
+
+.envelope:hover {
+    transform: translateY(-7px);
+}
+
+
+/* =========================================================
+   PINK ENVELOPE BODY
+========================================================= */
+
+.env-back {
+    position: absolute;
+
+    left: 0;
+    top: 0px;
+
+    width: 100%;
+    height: calc(100% - 10px);
+
+    background: #c967a8;
+
+    border-radius:
+        0 0 18px 18px;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   WHITE LETTER
+========================================================= */
+
+.env-paper {
+    position: absolute;
+
+    width: 62%;
+
+    height: 88%;
+
+    left: 19%;
+
+    top: 5px;
+
+    background: #f3f1f3;
+
+    border-radius:
+        16px 16px 10px 10px;
+
+    color: #55525a;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    /*
+       Keep the text toward the bottom
+       so the flap does not cover it.
+    */
+    padding:
+        0 20px 42px;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.12);
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   TOP FLAP
+========================================================= */
+
+.env-flap {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 55%;
+
+    background: #d47bb5;
+
+    /*
+       Triangle flap
+    */
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    z-index: 4;
+
+    transform-origin: top center;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+/* =========================================================
+   REMOVE THE OLD FRONT LAYER
+========================================================= */
+
+.env-front {
+    display: none;
+}
+
+
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter {
+    width: min(760px, 100%);
+
+    padding:
+        42px 45px;
+
+    margin: 0 auto;
+
+    border-radius: 24px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.letter p {
+    color: #ddd9e1;
+
+    font-size: 18px;
+
+    line-height: 2;
+
+    margin: 13px 0;
+}
+
+.quote {
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    font-size: 27px;
+
+    color: #e891c3;
+
+    margin: 20px auto;
+}
+
+
+/* =========================================================
+   MEMORY GRID
+========================================================= */
+
+.grid {
+    width: min(820px, 100%);
+
+    margin: 20px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+}
+
+.box {
+    min-height: 135px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.box:hover {
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255, 255, 255, 0.075);
+}
+
+.box .icon {
+    font-size: 30px;
+
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+.box span:last-child {
+    color: #d8d3dd;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   PHOTOS
+========================================================= */
+
+.photo {
+    width: min(430px, 90vw);
+
+    height: 390px;
+
+    margin:
+        0 auto 24px;
+
+    padding: 11px;
+
+    border-radius: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 137, 208, 0.75),
+            rgba(138, 83, 225, 0.7)
+        );
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.25);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #292033,
+            #171720
+        );
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+    width: min(760px, 100%);
+
+    margin: 20px auto;
+
+    position: relative;
+
+    text-align: left;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 17px;
+
+    top: 4px;
+
+    bottom: 4px;
+
+    width: 2px;
+
+    background:
+        linear-gradient(
+            #ed72ba,
+            #8d61e8
+        );
+}
+
+.item {
+    position: relative;
+
+    padding:
+        0 0 25px 55px;
+}
+
+.dot {
+    position: absolute;
+
+    left: 8px;
+    top: 2px;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: #dc71b8;
+
+    box-shadow:
+        0 0 18px rgba(220, 113, 184, 0.55);
+}
+
+.item h4 {
+    color: #ee88c0;
+
+    font-size: 19px;
+
+    margin-bottom: 5px;
+}
+
+.item p {
+    color: #c7c2ce;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   WISHES
+========================================================= */
+
+.wishes {
+    width: min(850px, 100%);
+
+    margin: 20px auto;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+.wish {
+    padding:
+        12px 18px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(232, 113, 184, 0.10);
+
+    border:
+        1px solid rgba(232, 113, 184, 0.18);
+
+    color: #ddd3df;
+}
+
+
+/* =========================================================
+   FINAL PAGE
+========================================================= */
+
+.final-heart {
+    font-size: 100px;
+
+    color: #ff5d9a;
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 0 28px rgba(255, 93, 154, 0.38)
+        );
+
+    animation:
+        heartbeat 1.6s infinite;
+}
+
+.final-message {
+    margin-top: 22px;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(35px, 5vw, 57px);
+
+    font-weight: 400;
+
+    color: #ed8bc2;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 28px;
+    right: 28px;
+
+    bottom: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.nav a {
+    min-width: 110px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.11);
+
+    color: #eeeaf0;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    border-radius: 999px;
+
+    padding:
+        12px 20px;
+
+    font-size: 14px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.nav a:hover {
+    background:
+        rgba(233, 103, 183, 0.17);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   PAGE DOTS
+========================================================= */
+
+.dots {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+}
+
+.dots i {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.22);
+
+    transition:
+        width 0.25s ease;
+}
+
+.dots i.active {
+    width: 24px;
+
+    border-radius: 20px;
+
+    background: #dc70b5;
+
+    box-shadow:
+        0 0 12px rgba(220, 112, 181, 0.45);
+}
+
+
+
+/* =========================================================
+   FLOATING BALLOONS
+========================================================= */
+
+.balloons {
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* ---------------------------------------------------------
+   LEFT BALLOONS
+--------------------------------------------------------- */
+
+.left {
+    left: 20px;
+    top: 35%;
+}
+
+
+/* ---------------------------------------------------------
+   RIGHT BALLOONS
+--------------------------------------------------------- */
+
+.right {
+    right: 20px;
+    top: 35%;
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM BALLOONS
+--------------------------------------------------------- */
+
+.bottom {
+    position: fixed;
+
+    left: 40%;
+    bottom: -70px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 120px;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* ---------------------------------------------------------
+   BALLOON
+--------------------------------------------------------- */
+
+.balloon {
+    width: 88px;
+    height: 113px;
+
+    display: block;
+
+    position: relative;
+
+    border-radius:
+        50% 50% 48% 48%;
+
+    animation:
+        balloonFloat 6s ease-in-out infinite;
+
+    will-change:
+        transform;
+}
+
+
+/* Balloon string */
+
+.balloon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 120px;
+
+    left: 50%;
+
+    top: 98%;
+
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    transform:
+        translateX(-50%);
+}
+
+
+/* Balloon knot */
+
+.balloon::before {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    left: 50%;
+
+    bottom: -7px;
+
+    transform:
+        translateX(-50%);
+
+    border-left:
+        5px solid transparent;
+
+    border-right:
+        5px solid transparent;
+
+    border-top:
+        8px solid currentColor;
+}
+
+
+/* ---------------------------------------------------------
+   BALLOON COLORS
+--------------------------------------------------------- */
+
+.purple {
+    background: #9857f4;
+
+    color: #9857f4;
+
+    box-shadow:
+        0 0 25px rgba(152, 87, 244, 0.35);
+}
+
+.pink {
+    background: #f567ba;
+
+    color: #f567ba;
+
+    box-shadow:
+        0 0 25px rgba(245, 103, 186, 0.35);
+}
+
+.blue {
+    background: #56b8ef;
+
+    color: #56b8ef;
+
+    box-shadow:
+        0 0 25px rgba(86, 184, 239, 0.35);
+}
+
+.yellow {
+    background: #ffd659;
+
+    color: #ffd659;
+
+    box-shadow:
+        0 0 25px rgba(255, 214, 89, 0.35);
+}
+
+
+/* =========================================================
+   DIFFERENT BALLOON ANIMATIONS
+========================================================= */
+
+
+/* Main floating movement */
+
+@keyframes balloonFloat {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            rotate(-4deg);
+    }
+
+    20% {
+        transform:
+            translate3d(35px, -55px, 0)
+            rotate(5deg);
+    }
+
+    40% {
+        transform:
+            translate3d(-20px, -105px, 0)
+            rotate(-3deg);
+    }
+
+    60% {
+        transform:
+            translate3d(45px, -70px, 0)
+            rotate(6deg);
+    }
+
+    80% {
+        transform:
+            translate3d(-30px, -25px, 0)
+            rotate(-5deg);
+    }
+
+    100% {
+        transform:
+            translate3d(0, 0, 0)
+            rotate(-4deg);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   INDIVIDUAL BALLOON TIMINGS
+--------------------------------------------------------- */
+
+.left .balloon:nth-child(1) {
+    margin-left: 67px;
+
+    animation:
+        balloonFloat 7s ease-in-out infinite;
+}
+
+.left .balloon:nth-child(2) {
+    margin-top: 150px;
+
+    margin-left: -25px;
+
+    animation:
+        balloonFloat 8.5s ease-in-out infinite;
+
+    animation-delay:
+        -2s;
+}
+
+
+.right .balloon:nth-child(1) {
+    animation:
+        balloonFloat 6.5s ease-in-out infinite;
+
+    animation-delay:
+        -3s;
+}
+
+.right .balloon:nth-child(2) {
+    margin-top: 150px;
+
+    margin-right: 100px;
+
+    animation:
+        balloonFloat 9s ease-in-out infinite;
+
+    animation-delay:
+        -4s;
+}
+
+
+/* Bottom balloons */
+
+.bottom .balloon:nth-child(1) {
+    animation:
+        balloonFloat 7.5s ease-in-out infinite;
+
+    animation-delay:
+        -1s;
+}
+
+.bottom .balloon:nth-child(2) {
+    margin-bottom: -20px;
+
+    animation:
+        balloonFloat 8s ease-in-out infinite;
+
+    animation-delay:
+        -4s;
+}
+
+.bottom .balloon:nth-child(3) {
+    margin-bottom: 70px;
+
+    animation:
+        balloonFloat 6.8s ease-in-out infinite;
+
+    animation-delay:
+        -2.5s;
+}
+
+.topbar {
+    position: relative;
+    z-index: 10;
+}
+
+.main {
+    position: relative;
+    z-index: 5;
+}
+
+
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .topbar {
+        height: 82px;
+
+        padding:
+            0 18px;
+    }
+
+    .brand {
+        font-size: 28px;
+
+        gap: 9px;
+    }
+
+    .brand-heart {
+        font-size: 30px;
+    }
+
+    .music-btn {
+        width: 54px;
+        height: 54px;
+
+        font-size: 28px;
+    }
+
+    .main {
+        padding:
+            16px 12px 35px;
+    }
+
+    .card {
+        min-height: 720px;
+
+        border-radius: 26px;
+    }
+
+    .center {
+        min-height: 630px;
+
+        padding:
+            55px 18px 105px;
+    }
+
+    .envelope {
+        height: 190px;
+    }
+
+    .letter {
+        padding:
+            27px 20px;
+    }
+
+    .letter p,
+    .message {
+        font-size: 16px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+
+        max-width: 430px;
+    }
+
+    .photo {
+        height: 330px;
+    }
+
+    .balloon {
+        transform: scale(0.72);
+    }
+
+    .left {
+        left: -38px;
+    }
+
+    .right {
+        right: -58px;
+    }
+
+    .bottom {
+        left: 25%;
+
+        gap: 60px;
+    }
+
+    .nav {
+        left: 15px;
+        right: 15px;
+    }
+
+    .nav a {
+        min-width: 85px;
+
+        padding:
+            10px 14px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .brand {
+        font-size: 24px;
+    }
+
+    .title {
+        font-size: 54px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .envelope {
+        width: 330px;
+        height: 155px;
+    }
+
+    .env-paper {
+        font-size: 13px;
+
+        padding-bottom: 22px;
+    }
+
+    .final-heart {
+        font-size: 78px;
+    }
+
+    .dots {
+        display: none;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   CLICK HEART EFFECT
+========================================================= */
+
+.click-heart {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    color: #ff4f91;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    opacity: 1;
+
+    text-shadow:
+        0 0 8px rgba(255, 80, 145, 0.55),
+        0 0 18px rgba(255, 80, 145, 0.35);
+
+    animation:
+        heartPop 2.5s ease-out forwards;
+}
+
+
+/* Different pink shades */
+
+.click-heart.pink1 {
+    color: #ff4f91;
+}
+
+.click-heart.pink2 {
+    color: #ff6faf;
+}
+
+.click-heart.pink3 {
+    color: #d95b9e;
+}
+
+.click-heart.pink4 {
+    color: #f58bc1;
+}
+
+.click-heart.pink5 {
+    color: #c84f91;
+}
+
+
+/* =========================================================
+   HEART ANIMATION
+========================================================= */
+
+@keyframes heartPop {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+    }
+
+    10% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.2);
+    }
+
+    25% {
+        opacity: 1;
+
+        transform:
+            translate(
+                calc(-50% + var(--x1)),
+                calc(-50% + var(--y1))
+            )
+            scale(1);
+    }
+
+    65% {
+        opacity: 0.75;
+
+        transform:
+            translate(
+                calc(-50% + var(--x2)),
+                calc(-50% + var(--y2))
+            )
+            scale(0.85);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + var(--x3)),
+                calc(-50% + var(--y3))
+            )
+            scale(0.35);
+    }
+}
+
+
+
+
+
+
+
+
+/* =========================================================
+   MAKE A WISH PAGE
+========================================================= */
+
+.wish-page {
+    position: relative;
+}
+
+
+/* ---------------------------------------------------------
+   INSTRUCTION
+--------------------------------------------------------- */
+
+.wish-instruction {
+
+    color: #bdb8c5;
+
+    font-size: 18px;
+
+    margin-top: -8px;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =========================================================
+   CAKE AREA
+========================================================= */
+
+.cake-area {
+
+    width: 360px;
+
+    height: 330px;
+
+    margin: 0 auto;
+
+    position: relative;
+
+}
+
+
+/* =========================================================
+   NEW CAKE
+   Overall size remains exactly:
+   300px × 150px
+========================================================= */
+
+.cake {
+    position: absolute;
+
+    width: 300px;
+    height: 150px;
+
+    left: 50%;
+    bottom: 15px;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   TOP CAKE LAYER
+========================================================= */
+
+.cake-layer-top {
+    position: absolute;
+
+    width: 300px;
+    height: 58px;
+
+    left: 0;
+    top: 5px;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffacd8,
+            #ed76b8
+        );
+
+    box-shadow:
+        0 8px 14px
+        rgba(0, 0, 0, 0.18);
+
+    z-index: 4;
+}
+
+
+/* =========================================================
+   CREAM LINE
+========================================================= */
+
+.cake-cream-line {
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+
+    bottom: 4px;
+
+    height: 13px;
+
+    border-radius: 50%;
+
+    background:
+        #fff3fa;
+
+    box-shadow:
+        0 2px 5px
+        rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   TOP CAKE DOTS
+========================================================= */
+
+.cake-dot {
+    position: absolute;
+
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+
+    background: #ffd65a;
+
+    box-shadow:
+        0 2px 5px
+        rgba(0, 0, 0, 0.12);
+
+    z-index: 5;
+}
+
+
+.dot-1 {
+    left: 38px;
+    top: 18px;
+}
+
+.dot-2 {
+    left: 92px;
+    top: 31px;
+}
+
+.dot-3 {
+    left: 143px;
+    top: 17px;
+}
+
+.dot-4 {
+    left: 195px;
+    top: 31px;
+}
+
+.dot-5 {
+    left: 247px;
+    top: 18px;
+}
+
+
+/* =========================================================
+   BOTTOM CAKE LAYER
+========================================================= */
+
+.cake-layer-bottom {
+    position: absolute;
+
+    width: 286px;
+    height: 83px;
+
+    left: 7px;
+    top: 42px;
+
+    border-radius:
+        8px 8px 20px 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c95b9f 0%,
+            #e276b2 25%,
+            #ee83bc 50%,
+            #e276b2 75%,
+            #c95b9f 100%
+        );
+
+    box-shadow:
+        0 10px 18px
+        rgba(0, 0, 0, 0.18);
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CREAM DRIPS
+========================================================= */
+
+.cake-drip {
+    position: absolute;
+
+    top: -4px;
+
+    width: 38px;
+    height: 30px;
+
+    background:
+        #fff3fa;
+
+    border-radius:
+        0 0 20px 20px;
+}
+
+
+/* Different drip positions */
+
+.drip-1 {
+    left: 25px;
+    height: 34px;
+}
+
+.drip-2 {
+    left: 93px;
+    height: 23px;
+}
+
+.drip-3 {
+    left: 163px;
+    height: 32px;
+}
+
+.drip-4 {
+    left: 225px;
+    height: 21px;
+}
+
+
+/* =========================================================
+   CAKE FLOWERS / DECORATION
+========================================================= */
+
+.cake-flower {
+    position: absolute;
+
+    color: #ffd65a;
+
+    font-size: 25px;
+
+    text-shadow:
+        0 2px 4px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+.flower-1 {
+    left: 45px;
+    top: 42px;
+}
+
+.flower-2 {
+    left: 132px;
+    top: 55px;
+}
+
+.flower-3 {
+    left: 220px;
+    top: 40px;
+}
+
+
+/* =========================================================
+   CAKE BASE
+========================================================= */
+
+.cake-base {
+    position: absolute;
+
+    width: 315px;
+    height: 25px;
+
+    left: -7px;
+    bottom: 0;
+
+    border-radius:
+        15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a94d96,
+            #c962a8,
+            #a94d96
+        );
+
+    box-shadow:
+        0 7px 15px
+        rgba(0, 0, 0, 0.22);
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   CANDLE
+========================================================= */
+
+.candle-container {
+
+    position: absolute;
+
+    width: 60px;
+
+    height: 145px;
+
+    left: 50%;
+
+    top: 25px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 10;
+
+}
+
+
+/* ---------------------------------------------------------
+   CANDLE BODY
+--------------------------------------------------------- */
+
+.candle {
+
+    position: absolute;
+
+    width: 28px;
+
+    height: 100px;
+
+    left: 50%;
+
+    bottom: 0;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        6px 6px 3px 3px;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #fff2fa 0px,
+            #fff2fa 8px,
+            #ff7fc3 8px,
+            #ff7fc3 16px
+        );
+
+    box-shadow:
+        inset -4px 0 8px
+        rgba(0, 0, 0, 0.12),
+
+        0 5px 12px
+        rgba(0, 0, 0, 0.18);
+
+}
+
+
+/* =========================================================
+   WICK
+========================================================= */
+
+.candle::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 3px;
+
+    height: 12px;
+
+    left: 50%;
+
+    top: -10px;
+
+    transform:
+        translateX(-50%);
+
+    background: #3b2935;
+
+    border-radius: 3px;
+
+}
+
+
+/* =========================================================
+   FLAME
+========================================================= */
+
+.flame {
+
+    position: absolute;
+
+    width: 34px;
+
+    height: 55px;
+
+    left: 50%;
+
+    top: -15px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8a8 0%,
+            #ffd33d 40%,
+            #ff8a00 100%
+        );
+
+    border-radius:
+        50% 50% 50% 50% /
+        65% 65% 35% 35%;
+
+    transform-origin:
+        50% 90%;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255, 190, 50, 0.75)
+        );
+
+    animation:
+        flameFlicker
+        0.18s
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+/* ---------------------------------------------------------
+   INNER FLAME
+--------------------------------------------------------- */
+
+.flame-inner {
+
+    position: absolute;
+
+    width: 14px;
+
+    height: 25px;
+
+    left: 50%;
+
+    bottom: 7px;
+
+    transform:
+        translateX(-50%);
+
+    background: #fffbe5;
+
+    border-radius:
+        50% 50% 45% 45%;
+
+}
+
+
+/* =========================================================
+   FLAME ANIMATION
+========================================================= */
+
+@keyframes flameFlicker {
+
+    0% {
+        transform:
+            translateX(-50%)
+            rotate(-4deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            rotate(4deg)
+            scale(1.05);
+    }
+
+    100% {
+        transform:
+            translateX(-50%)
+            rotate(-3deg)
+            scale(0.94);
+    }
+
+}
+
+
+/* =========================================================
+   SMOKE
+========================================================= */
+
+.smoke {
+
+    position: absolute;
+
+    width: 12px;
+
+    height: 12px;
+
+    left: 50%;
+
+    top: -50px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(210, 210, 220, 0.55);
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
+}
+
+
+/* Smoke animations */
+
+.smoke-1 {
+    animation:
+        smokeRise
+        2s
+        ease-out
+        forwards;
+}
+
+.smoke-2 {
+    animation:
+        smokeRise
+        2.4s
+        ease-out
+        forwards;
+
+    animation-delay:
+        0.15s;
+}
+
+.smoke-3 {
+    animation:
+        smokeRise
+        2.8s
+        ease-out
+        forwards;
+
+    animation-delay:
+        0.3s;
+}
+
+
+@keyframes smokeRise {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(
+                -50%,
+                0
+            )
+            scale(0.5);
+    }
+
+    20% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + 25px),
+                -90px
+            )
+            scale(2);
+    }
+
+}
+
+
+/* =========================================================
+   BLOW BUTTON
+========================================================= */
+
+.blow-button {
+
+    border: none;
+
+    padding:
+        14px 28px;
+
+    margin-top: 5px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ec6bb8,
+            #a85cdd
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(214, 86, 177, 0.30);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.blow-button:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 12px 30px
+        rgba(214, 86, 177, 0.45);
+
+}
+
+
+/* =========================================================
+   CANDLE BLOWN
+========================================================= */
+
+.flame.blown {
+
+    animation:
+        flameDisappear
+        0.45s
+        ease-out
+        forwards;
+
+}
+
+
+@keyframes flameDisappear {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scale(1);
+
+    }
+
+    60% {
+
+        opacity: 0.5;
+
+        transform:
+            translateX(-70%)
+            scale(0.6);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateX(-110%)
+            scale(0.1);
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW SMOKE AFTER BLOW
+========================================================= */
+
+.candle-container.blown
+.smoke {
+
+    animation-play-state:
+        running;
+
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.wish-success {
+
+    margin-top: 18px;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px)
+        scale(0.9);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+
+.wish-success.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+.success-stars {
+
+    font-size: 22px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.wish-success h2 {
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    font-size: 32px;
+
+    color: #ef83bf;
+
+    margin-bottom: 4px;
+
+}
+
+
+.wish-success p {
+
+    color: #c8c2cf;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================================
+   DISABLED NEXT BUTTON
+========================================================= */
+
+.disabled-next {
+
+    opacity: 0.25 !important;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .cake-area {
+
+        transform:
+            scale(0.82);
+
+        margin-top: -20px;
+
+        margin-bottom: -20px;
+
+    }
+
+    .wish-instruction {
+
+        font-size: 15px;
+
+    }
+
+    .blow-button {
+
+        font-size: 14px;
+
+        padding:
+            12px 22px;
+
+    }
+
+}

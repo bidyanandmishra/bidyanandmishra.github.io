@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Make A Wish 🎂</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="page-bg"></div>
+
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+<div class="glow g3"></div>
+
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <span class="brand-heart">
+            ♥
+        </span>
+
+        <span>
+            Happy Birthday
+        </span>
+
+    </div>
+
+
+    <button
+        class="music-btn"
+        id="musicBtn"
+        aria-label="Toggle music"
+    >
+
+        <span id="musicIcon">
+            ♫
+        </span>
+
+    </button>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+<section class="card">
+
+
+    <!-- PAGE NUMBER -->
+
+    <div class="page-no">
+        8 / 9
+    </div>
+
+
+
+    <!-- =================================================
+         CENTER CONTENT
+    ================================================= -->
+
+    <div class="center">
+
+        <div class="content wish-page">
+
+
+            <!-- TITLE -->
+
+            <span class="heart">
+                ♥
+            </span>
+
+
+            <h1 class="small-title">
+                Make A Wish ✨
+            </h1>
+
+
+            <p class="wish-instruction">
+                Close your eyes, make a wish,
+                and blow out the candle ❤️
+            </p>
+
+
+
+            <!-- =================================================
+                 CAKE
+            ================================================= -->
+
+            <div
+                class="cake-area"
+                id="cakeArea"
+            >
+
+
+                <!-- CANDLE -->
+
+                <div class="candle-container">
+
+
+                    <!-- SMOKE -->
+
+                    <div
+                        class="smoke smoke-1"
+                        id="smoke1"
+                    ></div>
+
+                    <div
+                        class="smoke smoke-2"
+                        id="smoke2"
+                    ></div>
+
+                    <div
+                        class="smoke smoke-3"
+                        id="smoke3"
+                    ></div>
+
+
+                    <!-- FLAME -->
+
+                    <div
+                        class="flame"
+                        id="flame"
+                    >
+
+                        <div class="flame-inner"></div>
+
+                    </div>
+
+
+                    <!-- CANDLE -->
+
+                    <div class="candle">
+
+                        <div class="candle-stripe"></div>
+                        <div class="candle-stripe stripe-2"></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CAKE -->
+
+                <div class="cake">
+
+                    <div class="cake-layer cake-layer-top">
+
+                        <div class="cake-cream-line"></div>
+
+                        <span class="cake-dot dot-1"></span>
+                        <span class="cake-dot dot-2"></span>
+                        <span class="cake-dot dot-3"></span>
+                        <span class="cake-dot dot-4"></span>
+                        <span class="cake-dot dot-5"></span>
+
+                    </div>
+
+
+                    <div class="cake-layer cake-layer-bottom">
+
+                        <div class="cake-drip drip-1"></div>
+                        <div class="cake-drip drip-2"></div>
+                        <div class="cake-drip drip-3"></div>
+                        <div class="cake-drip drip-4"></div>
+
+                        <span class="cake-flower flower-1">✦</span>
+                        <span class="cake-flower flower-2">✦</span>
+                        <span class="cake-flower flower-3">✦</span>
+
+                    </div>
+
+
+                    <div class="cake-base"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 BLOW BUTTON
+            ================================================= -->
+
+            <button
+                class="blow-button"
+                id="blowButton"
+            >
+
+                💨 Blow the Candle
+
+            </button>
+
+
+
+            <!-- =================================================
+                 SUCCESS MESSAGE
+            ================================================= -->
+
+            <div
+                class="wish-success"
+                id="wishSuccess"
+            >
+
+                <div class="success-stars">
+                    ✨ ✨ ✨
+                </div>
+
+                <h2>
+                    Wish Made! ❤️
+                </h2>
+
+                <p>
+                    May your wish come true.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         NAVIGATION
+    ================================================= -->
+
+    <nav class="nav">
+
+        <a href="page7.html">
+            ← Back
+        </a>
+
+
+        <div class="dots">
+
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+
+            <i class="active"></i>
+
+            <i></i>
+
+        </div>
+
+
+        <!-- Disabled initially -->
+
+        <a
+            href="page9.html"
+            id="nextPage"
+            class="disabled-next"
+        >
+            Next →
+        </a>
+
+    </nav>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     BALLOONS
+===================================================== -->
+
+<div class="balloons left">
+
+    <span class="balloon purple"></span>
+
+    <span class="balloon pink"></span>
+
+</div>
+
+
+<div class="balloons right">
+
+    <span class="balloon blue"></span>
+
+    <span class="balloon pink"></span>
+
+</div>
+
+
+<div class="bottom">
+
+    <span class="balloon blue"></span>
+
+    <span class="balloon yellow"></span>
+
+    <span class="balloon pink"></span>
+
+</div>
+
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio
+    id="music"
+    loop
+>
+
+    <source
+        src="music/birthday.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+
+<script src="js/script.js"></script>
+
+
+</body>
+
+</html>
