@@ -973,8 +973,10 @@ body {
     html,
     body {
         width: 100%;
-        height: 100%;
-        overflow: hidden;
+        min-height: 100%;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     .top-header {
@@ -998,20 +1000,24 @@ body {
         position: relative;
 
         width: calc(100% - 16px);
-        height: calc(100vh - 68px);
 
-        min-height: 0;
+        /*
+           Keep a minimum screen-sized card, but allow it
+           to grow when the message needs more space.
+        */
+        min-height: calc(100vh - 68px);
+        height: auto;
 
-        margin: 10px auto 0;
+        margin: 10px auto 20px;
 
-        padding: 38px 10px 58px;
+        padding: 38px 10px 20px;
 
         border-radius: 24px;
 
         display: flex;
         flex-direction: column;
 
-        overflow: hidden;
+        overflow: visible;
     }
 
 
@@ -1064,12 +1070,17 @@ body {
     .message-box {
         position: relative;
 
-        flex: 1;
+        flex: none;
 
         width: 100%;
+
+        /*
+           Give the message enough room and let the
+           page scroll naturally if needed.
+        */
+        min-height: 420px;
         height: auto;
 
-        min-height: 0;
         max-height: none;
 
         padding: 12px 10px;
@@ -1091,15 +1102,16 @@ body {
 
     .message-content {
         width: 100%;
-        height: 100%;
+        min-height: 395px;
+        height: auto;
 
-        padding: 0;
+        padding: 10px 0;
 
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
 
-        overflow: hidden;
+        overflow: visible;
     }
 
 
@@ -1150,19 +1162,24 @@ body {
     ===================================================== */
 
     .navigation {
-        position: absolute;
+        position: relative;
 
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
+        left: auto;
+        right: auto;
+        bottom: auto;
 
-        height: 36px;
+        width: 100%;
+        height: 40px;
+
+        margin-top: 12px;
 
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         z-index: 20;
+
+        flex-shrink: 0;
     }
 
 
@@ -1250,7 +1267,9 @@ body {
     .main-card {
         width: calc(100% - 10px);
 
-        padding: 35px 7px 58px;
+        padding: 35px 7px 15px;
+
+        min-height: calc(100vh - 68px);
     }
 
     .heading-area h1 {
@@ -1267,6 +1286,7 @@ body {
 
     .message-box {
         padding: 10px 8px;
+        min-height: 430px;
     }
 
     #messageText {
